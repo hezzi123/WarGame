@@ -1,3 +1,4 @@
+//creating Ariel Yechezkel and Almog Amiga
 #include "Board.hpp"
 #include "Soldier.hpp"
 #include <string>
