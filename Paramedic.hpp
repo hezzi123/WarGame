@@ -1,15 +1,12 @@
 #ifndef WARGAME_PARAMEDIC_HPP
 #define WARGAME_PARAMEDIC_HPP
 
-#pragma once
-
 #include "Soldier.hpp"
 
-class Paramedic : public Soldier{
+class Paramedic : public Soldiers::Soldier
+{
 public:
-    Paramedic(int id_player): Soldier(id_player, 0, 100){}
-    void move(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board) override;
-
+    Paramedic(int num_player, int hp = 100): Soldier(num_player, hp){}
 };
 
 #endif //WARGAME_PARAMEDIC_HPP

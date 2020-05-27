@@ -5,11 +5,12 @@
 #pragma once
 #include "Soldier.hpp"
 
-class FootSoldier : public Soldier
+class FootSoldier : public Soldiers:: Soldier
 {
-    public:
-        FootSoldier(int id_player): Soldier(id_player, 10, 100){}
-        void move(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board) override;
+public:
+    FootSoldier(int num_player, int hp = 100, int damage = 10): Soldier(num_player, hp){damage = damage;}
+    virtual void move(int d);
+    virtual void shoot();
 };
 
 #endif //WARGAME_FOOTSOLDIER_HPP

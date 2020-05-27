@@ -2,13 +2,13 @@
 #define WARGAME_FOOTCOMMANDER_HPP
 
 #pragma once
+#include "FootSoldier.hpp"
 
-#include "Soldier.hpp"
-
-class FootCommander : public Soldier{
+class FootCommander : public FootSoldier {
 public:
-    FootCommander(int id_player): Soldier(id_player, 20, 150){}
-    void move(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board) override{}
+    FootCommander(int num_player): FootSoldier (num_player,150,20){}
+    virtual void move(int d);
+    void shoot();
 };
 
 

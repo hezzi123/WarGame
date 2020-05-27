@@ -8,22 +8,18 @@
 #include <iostream>
 #include <cmath>
 
-static int num1=0;
-static int num2=0;
 
-class Soldier {
-public:
-    int health;
-    int player;
-    const int mHealth;
+namespace Soldiers
+{
+    class Soldier{
+        int num_player;
+        int hp;
+        const int maxHp;
+    public:
+        Soldier(int num_player, int hp): hp(hp), maxHp(hp), num_player(num_player){}
+        virtual void move(int)=0;
+        virtual ~Soldier(){}
+    };
+}
 
-    Soldier(int health, int player, int mHealth) : health(health), player(player), mHealth(mHealth) {}
-
-    virtual ~Soldier() {
-        if (player == 1)num1--;
-        if (player == 2)num2--;
-    }
-
-    virtual void move(std::pair<int, int> source, std::vector<std::vector<Soldier *>> &board) = 0;
-};
 #endif //WARGAME_SOLDIER_HPP

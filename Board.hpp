@@ -1,34 +1,29 @@
-//
-// Created by ariki on 5/27/2020.
-//
-
-#ifndef WARGAME_BOARD_HPP
-#define WARGAME_BOARD_HPP
-
-
 #pragma once
 #include <string>
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
 
-//using namespace Soldier;
+using namespace Soldiers;
+namespace WarGame {
 
-namespace WarGame
-{
-    class Board{
+    class Board {
     private:
         std::vector<std::vector<Soldier*>> board;
     public:
         enum MoveDIR { Up, Down, Right, Left };
 
-        Board(uint numRows, uint numCols): board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+        Board(uint numRows, uint numCols) : board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
 
         // operator for putting soldiers on the game-board during initialization.
-        Soldier*& operator[](std::pair<int,int> location);
+        Soldier*& operator[](std::pair<int,int> location){
+            return board.at(location.first).at(location.second);
+        }
 
         // operator for reading which soldiers are on the game-board.
-        Soldier* operator[](std::pair<int,int> location) const;
+        Soldier* operator[](std::pair<int,int> location) const{
+            return board.at(location.first).at(location.second);
+        }
 
         // The function "move" tries to move the soldier of player "player"
         //     from the "source" location to the "target" location,
@@ -46,12 +41,6 @@ namespace WarGame
         // returns true iff the board contains one or more soldiers of the given player.
         bool has_soldiers(uint player_number) const;
 
-        ~Board()
-        {
-            board.clear();
-        }
     };
 
 }
-
-#endif //WARGAME_BOARD_HPP

@@ -2,14 +2,12 @@
 #define WARGAME_SNIPERCOMMANDER_HPP
 
 #pragma once
+#include "Sniper.hpp"
 
-#include "Soldier.hpp"
-
-class SniperCommander : public Soldier{
+class SniperCommander : public Sniper
+{
 public:
-    SniperCommander(int id_player): Soldier(id_player, 100, 120){}
-    void move(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board) override{}
-
+    SniperCommander(int num_player): Sniper(num_player,120,100){}
 };
 
 #endif //WARGAME_SNIPERCOMMANDER_HPP

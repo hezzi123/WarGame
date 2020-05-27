@@ -7,13 +7,13 @@ using namespace WarGame;
 
 Board board (10,10);
 
-TEST_CASE("checking 100 tests"){
+TEST_CASE("100 tests"){
     int i;
     int j;
-    for (i = 0; i < 11; i++) {
-        for (j = 0; j < 10; j++) {
-            board[{j, j}] = new FootSoldier(j);
-                    CHECK (board[{j, j}] != nullptr);
+    for (i=0;i<11;i++){
+        for (int k = 0; k < 10; k++) {
+            board[{k, k}] = new FootSoldier(k + i);
+            CHECK (board[{k, k}] != nullptr);
         }
     }
 }
